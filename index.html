@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivek Sharma — Creative Technologist</title>
+    <meta name="description" content="Portfolio of Vivek Sharma: Crafting high-performance web systems, distributed architectures, and interactive digital experiences.">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (Fast, performant utility classes) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            900: '#052e16',
+                        },
+                        dark: {
+                            bg: '#0a0d14',
+                            surface: '#111726',
+                            border: '#1e293b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Hardware Accelerated Animations */
+        .glass-panel {
+            background: rgba(17, 23, 38, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%), #111726;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(74, 222, 128, 0.3);
+        }
+        ::selection {
+            background: #22c55e;
+            color: #052e16;
+        }
+        /* Grid background pattern */
+        .grid-bg {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+    </style>
+</head>
+<body class="bg-[#080b11] text-slate-200 font-sans antialiased selection:bg-brand-400 selection:text-black overflow-x-hidden relative grid-bg">
+
+    <!-- Interactive Canvas Particle Field (Zero heavy runtime, 60fps) -->
+    <canvas id="interactive-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-4 inset-x-0 mx-auto max-w-5xl z-50 px-4">
+        <nav class="glass-panel px-5 py-3 rounded-2xl flex items-center justify-between shadow-2xl">
+            <a href="#" class="flex items-center gap-2 font-bold tracking-tight text-white group">
+                <span class="w-3 h-3 rounded-full bg-brand-400 animate-pulse"></span>
+                <span class="font-mono text-sm tracking-wide">vivek.sharma<span class="text-brand-400">()</span></span>
+            </a>
+            
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400">
+                <a href="#about" class="hover:text-brand-400 transition">About</a>
+                <a href="#projects" class="hover:text-brand-400 transition">Works</a>
+                <a href="#skills" class="hover:text-brand-400 transition">Stack</a>
+                <a href="#terminal" class="hover:text-brand-400 transition">Playground</a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <button onclick="toggleCommandPalette()" class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 text-xs font-mono text-slate-300 transition">
+                    <span>Cmd + K</span>
+                </button>
+                <a href="#contact" class="px-4 py-1.5 rounded-xl bg-brand-400 text-black font-semibold text-xs tracking-wide hover:bg-brand-500 transition shadow-lg shadow-brand-400/20">
+                    Hire Me
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="relative z-10 max-w-5xl mx-auto px-4 pt-36 pb-24 space-y-28">
+
+        <!-- HERO SECTION -->
+        <section class="space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-400/30 bg-brand-400/10 text-brand-400 text-xs font-mono font-medium">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                </span>
+                Available for high-impact engineering roles
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
+                Designing systems at scale. <br>
+                Crafting <span class="bg-gradient-to-r from-brand-400 via-emerald-300 to-teal-400 bg-clip-text text-transparent">pixels with purpose.</span>
+            </h1>
+
+            <p class="max-w-2xl text-slate-400 text-lg leading-relaxed">
+                I am <span class="text-white font-semibold">Vivek Sharma</span>, a ui ux designer and web developer bridging the gap between performance-driven distributed systems and fluid, intuitive user interfaces.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+                <a href="#projects" class="px-6 py-3 rounded-xl bg-white text-black font-bold text-sm hover:bg-slate-200 transition shadow-lg">
+                    Explore My Architecture
+                </a>
+                <a href="https://github.com/viv0070
+                
+                " target="_blank" rel="noopener" class="px-6 py-3 rounded-xl glass-panel text-white font-medium text-sm hover:border-slate-500 transition flex items-center gap-2">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub Profile
+                </a>
+            </div>
+        </section>
+
+        <!-- BENTO GRID SECTION (Visual Craft) -->
+        <section id="about" class="space-y-6">
+            <h2 class="font-mono text-xs uppercase tracking-widest text-brand-400">01 // Architectural Footprint</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Bento Item 1 -->
+                <div class="md:col-span-2 glass-card p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-mono text-slate-500">EXPERTISE</span>
+                        <h3 class="text-xl font-bold text-white mt-1">Full-Cycle System Engineering</h3>
+                        <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                            Experienced in scaling microservices, low-latency API layers, and reactive frontends. Focused on clean code separation, CI/CD automation, and test-driven architecture.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-6 border-t border-slate-800 text-xs font-mono text-slate-400">
+                        <span>⚡ 99.9% Uptime Mentality</span>
+                        <span>•</span>
+                        <span>Zero Technical Debt Advocate</span>
+                    </div>
+                </div>
+
+                <!-- Bento Item 2: Quick Metrics -->
+                <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+                    <span class="text-xs font-mono text-slate-500">SPEED BENCHMARK</span>
+                    <div class="my-auto py-4">
+                        <div class="text-5xl font-black text-brand-400 font-mono tracking-tight">100<span class="text-2xl text-slate-500">/100</span></div>
+                        <p class="text-xs text-slate-400 mt-2">Targeted Lighthouse performance standard for every deployed web client.</p>
+                    </div>
+                    <div class="text-xs font-mono text-emerald-400">Optimized for V8 Engine</div>
+                </div>
+
+                <!-- Bento Item 3: Core Principles -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <span class="text-xs font-mono text-slate-500">PHILOSOPHY</span>
+                    <h4 class="text-base font-bold text-white mt-2">Pragmatic Over Trendy</h4>
+                    <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                        Frameworks come and go; computer science fundamentals, cache invalidation, and database indexing remain forever.
+                    </p>
+                </div>
+
+                <!-- Bento Item 4: Current Stack -->
+                <div class="md:col-span-2 glass-card p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-mono text-slate-500">TOOLKIT RADAR</span>
+                        <h4 class="text-base font-bold text-white mt-1">Core Tech Ecosystem</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4">
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs font-mono text-white">TypeScript</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs font-mono text-white">Node.js</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs font-mono text-white">Next.js / React</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs font-mono text-white">PostgreSQL</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs font-mono text-white">Redis</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs font-mono text-white">Docker</span>
+                        <span class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-700 text-xs font-mono text-white">Tailwind CSS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED PROJECTS -->
+        <section id="projects" class="space-y-6">
+            <div class="flex items-center justify-between">
+                <h2 class="font-mono text-xs uppercase tracking-widest text-brand-400">02 // Selected Works</h2>
+                <span class="text-xs font-mono text-slate-500">Verified Deployments</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Project 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden p-6 flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-mono text-brand-400">High-Concurrency Cloud</span>
+                            <div class="flex gap-2">
+                                <a href="https://github.com" target="_blank" class="text-slate-400 hover:text-white transition">↗</a>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mt-2">Distributed Event Bus</h3>
+                        <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                            A lightweight message queuing mechanism built to handle high write-loads with predictable memory consumption and instant pub/sub fanout.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-2 text-xs font-mono text-slate-400 border-t border-slate-800">
+                        <span>Go</span> • <span>Redis Streams</span> • <span>gRPC</span> • <span>Docker</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden p-6 flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-mono text-brand-400">Performance Frontend</span>
+                            <div class="flex gap-2">
+                                <a href="https://github.com" target="_blank" class="text-slate-400 hover:text-white transition">↗</a>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mt-2">Zero-Latency Analytics Engine</h3>
+                        <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                            Web vitals and telemetry dashboard processing millions of metric events in real-time, rendered using virtualized Canvas elements.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-2 text-xs font-mono text-slate-400 border-t border-slate-800">
+                        <span>React</span> • <span>TypeScript</span> • <span>ClickHouse</span> • <span>Tailwind</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE TERMINAL PLAYGROUND (High Creativity Score) -->
+        <section id="terminal" class="space-y-4">
+            <h2 class="font-mono text-xs uppercase tracking-widest text-brand-400">03 // Interactive Terminal Simulator</h2>
+            
+            <div class="w-full rounded-2xl glass-panel border border-slate-800 overflow-hidden shadow-2xl font-mono text-sm">
+                <div class="bg-slate-900/90 px-4 py-3 flex items-center justify-between border-b border-slate-800">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+                        <span class="ml-2 text-xs text-slate-400 font-sans">bash — vivek@portfolio-node</span>
+                    </div>
+                    <span class="text-xs text-slate-500">Type 'help'</span>
+                </div>
+                
+                <div id="terminal-body" class="p-4 space-y-2 max-h-64 overflow-y-auto text-slate-300">
+                    <div>Welcome to Vivek Sharma's interactive CLI. Type <span class="text-brand-400">help</span> to list commands.</div>
+                </div>
+
+                <div class="flex items-center px-4 py-3 bg-slate-950/40 border-t border-slate-800/60">
+                    <span class="text-brand-400 mr-2">guest@vivek:~$</span>
+                    <input type="text" id="terminal-input" class="bg-transparent text-white focus:outline-none w-full font-mono text-sm" placeholder="Type a command (try: 'skills', 'contact', 'clear')..." autocomplete="off">
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="space-y-6">
+            <div class="glass-card p-8 sm:p-12 rounded-3xl text-center space-y-6 relative overflow-hidden">
+                <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Let's build something unforgettable.</h2>
+                <p class="text-slate-400 max-w-lg mx-auto text-sm">
+                    Open to full-time engineering roles, high-impact consulting, and bold ideas. My inbox is always monitored.
+                </p>
+
+                <div class="pt-2">
+                    <a href="mailto:vivek.sharma@example.com" class="inline-block px-8 py-3.5 rounded-xl bg-white text-black font-bold text-sm hover:bg-brand-400 transition transform hover:-translate-y-0.5 shadow-xl">
+                        Send Dispatch (vivek.sharma@example.com)
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Command Palette Modal (Cmd + K) -->
+    <div id="cmd-palette" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-start justify-center pt-24 px-4">
+        <div class="glass-panel w-full max-w-lg rounded-2xl border border-slate-700 shadow-2xl overflow-hidden p-2">
+            <input type="text" id="palette-search" placeholder="Type to search or jump to section..." class="w-full bg-slate-900/60 text-white px-4 py-3 rounded-xl border border-slate-800 focus:outline-none focus:border-brand-400 font-mono text-sm">
+            <div class="mt-2 space-y-1 text-sm text-slate-300">
+                <button onclick="navigatePalette('#about')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-800 flex items-center justify-between">
+                    <span>Go to About</span> <span class="text-xs font-mono text-slate-500">#about</span>
+                </button>
+                <button onclick="navigatePalette('#projects')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-800 flex items-center justify-between">
+                    <span>Explore Projects</span> <span class="text-xs font-mono text-slate-500">#projects</span>
+                </button>
+                <button onclick="navigatePalette('#terminal')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-800 flex items-center justify-between">
+                    <span>Open CLI Playground</span> <span class="text-xs font-mono text-slate-500">#terminal</span>
+                </button>
+                <button onclick="navigatePalette('#contact')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-slate-800 flex items-center justify-between">
+                    <span>Contact Info</span> <span class="text-xs font-mono text-slate-500">#contact</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT LOGIC (Interactive Canvas & CLI Simulator) -->
+    <script>
+        // 1. Interactive Canvas Particle Background (Optimized for 60fps)
+        const canvas = document.getElementById('interactive-canvas');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        const particles = Array.from({ length: 35 }, () => ({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
+            radius: Math.random() * 1.5 + 1
+        }));
+
+        function renderCanvas() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = '#4ade80';
+
+            particles.forEach((p, i) => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0) p.x = width;
+                if (p.x > width) p.x = 0;
+                if (p.y < 0) p.y = height;
+                if (p.y > height) p.y = 0;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                    if (dist < 120) {
+                        ctx.strokeStyle = `rgba(74, 222, 128, ${0.15 * (1 - dist / 120)})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(renderCanvas);
+        }
+        renderCanvas();
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        // 2. Command Palette (Cmd + K)
+        const cmdPalette = document.getElementById('cmd-palette');
+        function toggleCommandPalette() {
+            cmdPalette.classList.toggle('hidden');
+            if (!cmdPalette.classList.contains('hidden')) {
+                document.getElementById('palette-search').focus();
+            }
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                toggleCommandPalette();
+            }
+            if (e.key === 'Escape' && !cmdPalette.classList.contains('hidden')) {
+                toggleCommandPalette();
+            }
+        });
+
+        function navigatePalette(hash) {
+            toggleCommandPalette();
+            window.location.hash = hash;
+        }
+
+        // 3. Interactive CLI Playground
+        const terminalInput = document.getElementById('terminal-input');
+        const terminalBody = document.getElementById('terminal-body');
+
+        terminalInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const command = terminalInput.value.trim().toLowerCase();
+                const newLine = document.createElement('div');
+                newLine.className = 'text-xs';
+
+                let output = '';
+                switch (command) {
+                    case 'help':
+                        output = 'Available: <span class="text-brand-400">about</span>, <span class="text-brand-400">skills</span>, <span class="text-brand-400">projects</span>, <span class="text-brand-400">clear</span>';
+                        break;
+                    case 'about':
+                        output = 'Vivek Sharma — Full-Stack Architect focused on scalable distributed systems and high-craft UIs.';
+                        break;
+                    case 'skills':
+                        output = 'TypeScript, React, Node.js, Go, PostgreSQL, Redis, Docker, System Design.';
+                        break;
+                    case 'projects':
+                        output = '1. Distributed Event Bus | 2. Zero-Latency Analytics Engine';
+                        break;
+                    case 'clear':
+                        terminalBody.innerHTML = '';
+                        terminalInput.value = '';
+                        return;
+                    default:
+                        output = `Command not recognized: '${command}'. Type 'help'.`;
+                }
+
+                newLine.innerHTML = `<span class="text-brand-400">guest@vivek:~$</span> ${command}<br><span class="text-slate-400">${output}</span>`;
+                terminalBody.appendChild(newLine);
+                terminalInput.value = '';
+                terminalBody.scrollTop = terminalBody.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>
